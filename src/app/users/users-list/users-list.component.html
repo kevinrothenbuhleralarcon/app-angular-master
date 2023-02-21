@@ -7,7 +7,11 @@
          [routerLink]="[c.id]">
         {{c.name}}
       </a>
-      <li class="list-group-item text-center">
+      <div>
+        <input type="checkbox" id="ShowUser" name="ShowUser" [(ngModel)]="showTotalUser">
+        <label for="ShowUser">Show user list</label>
+      </div>
+      <li class="list-group-item text-center" *ngIf="showTotalUser">
         {{(users$ | async)?.length}} users
       </li>
       <a class="btn btn-primary btn-block mt-3" [routerLink]="['add']">Add</a>
